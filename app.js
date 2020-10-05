@@ -4,6 +4,7 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const questions = require("./questions");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -33,3 +34,30 @@ const render = require("./lib/htmlRenderer");
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
+
+/**
+ * Recursive prompt example
+ * Allows user to choose when to exit prompt
+ */
+
+ createRegex = (prop) => {
+   return /{{ prop }}/;
+ }
+
+'use strict';
+; (() => {
+  const output = [];
+
+  function ask() {
+
+    inquirer.prompt(questions).then((answers) => {
+      output.push(answers.role);
+      if (answers.askAgain) {
+        ask();
+      }
+      else console.log(JSON.stringify(output));
+    })
+  }
+
+  ask();
+})()
