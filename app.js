@@ -10,6 +10,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const Employee = require("./lib/Employee");
 
 createEmployee = (answers) => {
   switch (answers.role) {
@@ -19,6 +20,8 @@ createEmployee = (answers) => {
       return new Engineer(answers.name, answers.id, answers.email, answers.github);
     case "Intern":
       return new Intern(answers.name, answers.id, answers.email, answers.school);
+    default:
+      return new Employee(answers.name, answers.id, answers.email);
   }
 }
 
@@ -31,6 +34,7 @@ createEmployee = (answers) => {
           ask();
         }
         else {
+          if(output.length === 0) return;
           fs.writeFile(outputPath, render(output), (e) => {
             if (e) console.log(e);
           })
