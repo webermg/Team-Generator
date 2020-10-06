@@ -8,12 +8,14 @@ const questions = [
   {
     type: 'input',
     name: "name",
-    message: "Team member's name?"
+    message: "Team member's name?",
+    validate: answer => /\S+/.test(answer) ? true : "Input must not be empty"
   },
   {
     type: 'input',
     name: "id",
-    message: "Team member's ID?"
+    message: "Team member's ID?",
+    validate: answer => /\S+/.test(answer) ? true : "Input must not be empty"
   },
   {
     type: 'input',
@@ -25,19 +27,22 @@ const questions = [
     type: 'input',
     name: "officeNum",
     message: "Manager's office number?",
-    when: answers => answers.role === "Manager"
+    when: answers => answers.role === "Manager",
+    validate: answer => /\S+/.test(answer) ? true : "Input must not be empty"
   },
   {
     type: 'input',
     name: "github",
     message: "Engineer's GitHub name?",
-    when: answers => answers.role === "Engineer"
+    when: answers => answers.role === "Engineer",
+    validate: answer => /\S+/.test(answer) ? true : "Input must not be empty"
   },
   {
     type: 'input',
     name: "school",
     message: "Intern's school name?",
-    when: answers => answers.role === "Intern"
+    when: answers => answers.role === "Intern",
+    validate: answer => /\S+/.test(answer) ? true : "Input must not be empty"
   },
  
   {
