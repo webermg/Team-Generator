@@ -5,9 +5,9 @@
 
 A simple app that generates a team site based on entered members. Each team member has some specific info attached to them and the end result is laid out logically in a nice looking website. Output is found in output folder, and page displays appropriately at all screen widths.
 
-![gif](assets/teamgengif.gif)
-![screenshot1](assets/Teamgenscreen1.png)
-![screenshot2](assets/teamgenscreen2.png)
+![gif](Assets/teamgengif.gif)
+![screenshot1](Assets/Teamgenscreen1.png)
+![screenshot2](Assets/teamgenscreen2.png)
 
 ## Table of Contents
 1. [Installation](#Installation)
